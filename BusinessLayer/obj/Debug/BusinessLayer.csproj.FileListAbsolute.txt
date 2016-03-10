@@ -1,0 +1,14 @@
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\BusinessLayer.exe.config
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\SchoolDB.mdf
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\SchoolDB_log.ldf
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\BusinessLayer.exe
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\DataAccessLayer.exe
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\obj\Debug\BusinessLayer.exe
+C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\BusinessLayer\obj\Debug\BusinessLayer.pdb
