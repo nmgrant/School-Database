@@ -22,3 +22,15 @@ C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.exe
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\SchoolDB.mdf
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\SchoolDB_log.ldf
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\DataAccessLayer.exe.config
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\DataAccessLayer.exe
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.exe
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

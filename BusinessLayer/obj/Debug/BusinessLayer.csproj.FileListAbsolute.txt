@@ -26,3 +26,17 @@ C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\BusinessLayer\bin\D
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\BusinessLayer.exe.config
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.exe
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\SchoolDB.mdf
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\SchoolDB_log.ldf
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\BusinessLayer.exe
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\DataAccessLayer.exe
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
