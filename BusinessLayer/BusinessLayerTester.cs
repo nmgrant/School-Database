@@ -16,6 +16,8 @@ namespace BusinessLayer {
                 Console.WriteLine(element.StudentID + ": " + element.StudentName);
             }
 
+            businessL.addStudent(CreateStudent());
+            /*
             businessL.addStudent(new DataAccessLayer.Student() {
                 StudentName = "Evan",
                 StudentID = 4444,
@@ -26,20 +28,24 @@ namespace BusinessLayer {
                 StudentName = "Nick",
                 StudentID = 7777,
                 StandardId = 7
-            });
+            });*/
 
+            
             Console.WriteLine("\nAdd student (Evan and Nick)");
             foreach (var element in businessL.getAllStudents()) {
                 Console.WriteLine(element.StudentID + ": " + element.StudentName);
+                Console.WriteLine("StandardId: " + element.StandardId);
             }
 
-            businessL.RemoveStudent(businessL.GetStudentByID(businessL.getAllStudents().Count));
+            businessL.RemoveStudent(DeleteStudent());
+            //businessL.RemoveStudent(businessL.GetStudentByID(11));
 
             Console.WriteLine("\nRemove student (Last Student)");
             foreach (var element in businessL.getAllStudents()) {
                 Console.WriteLine(element.StudentID + ": " + element.StudentName);
+                Console.WriteLine("StandardId: " + element.StandardId);
             }
-
+            /*
             businessL.GetStudentByID(2).StudentName = "BlAdam";
             businessL.UpdateStudent(businessL.GetStudentByID(2));
 
@@ -110,17 +116,34 @@ namespace BusinessLayer {
 
             foreach (var element in standards) {
                 Console.WriteLine(element.StandardId + ": " + element.StandardName);
-            }
+            }*/
         }
 
-        static void CreateStudent() {
-            Console.WriteLine("Enter a name: ");
+        static DataAccessLayer.Student CreateStudent() {
+            Console.Write("Enter a name: ");
             var name = Console.ReadLine();
 
-            Console.WriteLine("Enter a StandardId: ");
-            var standardId = Console.Read();
+            Console.Write("Enter a StandardId: ");
+            var standardId = Int32.Parse(Console.ReadLine());
 
-
+            return new DataAccessLayer.Student() {
+                StudentName = name,
+                StandardId = standardId
+            };
         }
+
+        static DataAccessLayer.Student DeleteStudent() {
+            Console.Write("Enter the StudentID of the student to delete: ");
+            return businessL.GetStudentByID(Int32.Parse(Console.ReadLine()));
+        }
+
+       /* static DataAccessLayer.Student UpdateStudent() {
+            Console.Write("Enter the StudentID of the student to update: ");
+            var studentId = Int32.Parse(Console.ReadLine());
+
+            Console.Write("Enter the new name: ");
+            var name = Console.ReadLine();
+        }*/
+
     }
 }

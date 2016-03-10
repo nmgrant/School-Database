@@ -35,7 +35,6 @@ namespace DataAccessLayer {
         }
 
         public IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate) {
-            //return context.Where(predicate);
             return dbset.Where(predicate);
         }
 

@@ -10,3 +10,15 @@ C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\DataAcce
 C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.exe
 C:\Users\Nick\Documents\CECS475\Homework\Homework 3\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\SchoolDB.mdf
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\SchoolDB_log.ldf
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\DataAccessLayer.exe.config
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\DataAccessLayer.exe
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.exe
+C:\Users\Nick\Documents\CECS475\Homework\CECS475.Assignment5\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
