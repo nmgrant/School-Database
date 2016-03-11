@@ -40,3 +40,6 @@ C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\Busine
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Evan\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\bin\Debug\BusinessLayer.exe.config
+C:\Users\Evan\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.exe
+C:\Users\Evan\Documents\Visual Studio 2015\Projects\School-Database\BusinessLayer\obj\Debug\BusinessLayer.pdb

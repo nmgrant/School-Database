@@ -16,15 +16,13 @@ namespace BusinessLayer {
             menuChoice = UserMenuChoice(menuOptions);
             switch (menuOptions) {
                case 1:
-                  MainMenu(menuChoice, ref exitProgram);
+                  MainMenu(menuChoice, ref menuOptions, ref exitProgram);
                   break;
                case 2:
                   StandardMenu(menuChoice, ref exitProgram);
                   break;
                case 3:
                   StudentMenu(menuChoice, ref exitProgram);
-                  break;
-               default:
                   break;
             }
          } while (!exitProgram);
@@ -202,11 +200,14 @@ namespace BusinessLayer {
          }
       }
 
-      public static void MainMenu(int menuChoice, ref bool exitProgram) {
+      public static void MainMenu(int menuChoice, ref int menuOption, 
+         ref bool exitProgram) {
          switch (menuChoice) {
             case 1:
+               menuOption = 2;
                break;
             case 2:
+               menuOption = 3;
                break;
             case 3:
                exitProgram = true;
