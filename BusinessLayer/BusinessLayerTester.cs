@@ -19,52 +19,16 @@ namespace BusinessLayer {
                   MainMenu(menuChoice, ref menuOptions, ref exitProgram);
                   break;
                case 2:
-                  StandardMenu(menuChoice, ref exitProgram);
+                  StandardMenu(menuChoice, ref menuOptions);
                   break;
                case 3:
-                  StudentMenu(menuChoice, ref exitProgram);
+                  StudentMenu(menuChoice, ref menuOptions);
                   break;
             }
          } while (!exitProgram);
 
 
          /* HardCoded
-         // Student Testing
-         Console.WriteLine("Default Student");
-         foreach (var element in businessL.getAllStudents()) {
-            Console.WriteLine(element.StudentID + ": " + element.StudentName);
-         }
-
-         businessL.addStudent(CreateStudent());
-         /*
-         businessL.addStudent(new DataAccessLayer.Student() {
-             StudentName = "Evan",
-             StudentID = 4444,
-             StandardId = 4
-         });
-
-         businessL.addStudent(new DataAccessLayer.Student() {
-             StudentName = "Nick",
-             StudentID = 7777,
-             StandardId = 7
-         });
-
-
-         Console.WriteLine("\nAdd student (Evan and Nick)");
-         foreach (var element in businessL.getAllStudents()) {
-            Console.WriteLine(element.StudentID + ": " + element.StudentName);
-            Console.WriteLine("StandardId: " + element.StandardId);
-         }
-
-         businessL.RemoveStudent(DeleteStudent());
-         //businessL.RemoveStudent(businessL.GetStudentByID(11));
-
-         Console.WriteLine("\nRemove student (Last Student)");
-         foreach (var element in businessL.getAllStudents()) {
-            Console.WriteLine(element.StudentID + ": " + element.StudentName);
-            Console.WriteLine("StandardId: " + element.StandardId);
-         }
-         /*
          businessL.GetStudentByID(2).StudentName = "BlAdam";
          businessL.UpdateStudent(businessL.GetStudentByID(2));
 
@@ -88,29 +52,7 @@ namespace BusinessLayer {
          foreach (var element in students) {
              Console.WriteLine(element.StudentID + ": " + element.StudentName);
          }
-
-         // Standard Testing
-         Console.WriteLine("\nDefault Standard");
-         foreach (var element in businessL.getAllStandards()) {
-             Console.WriteLine(element.StandardId + ": " + element.StandardName);
-         }
-
-         businessL.addStandard(new DataAccessLayer.Standard() {
-             StandardName = "English-Language Arts",
-             Description = "Common Core State Standards for English"
-         });
-
-         businessL.addStandard(new DataAccessLayer.Standard() {
-             StandardName = "Mathematics",
-             Description = "Common Core State Standards for Mathematics"
-         });
-
-         Console.WriteLine("\nAdd standards (English and Mathematics)");
-         foreach (var element in businessL.getAllStandards()) {
-             Console.WriteLine(element.StandardId + ": "
-                + element.StandardName);
-         }
-
+         
          businessL.removeStandard(businessL.GetStandardByID(businessL.getAllStandards().Count));
 
          Console.WriteLine("\nRemove standard (Last standard)");
@@ -176,12 +118,10 @@ namespace BusinessLayer {
             if (Int32.TryParse(userStringChoice, out userIntChoice)) {
                if (IsValidMenuChoice(userIntChoice, menu)) {
                   return userIntChoice;
-               }
-               else {
+               } else {
                   Console.WriteLine("\nInvalid menu option entered.");
                }
-            }
-            else {
+            } else {
                Console.WriteLine("Invalid input entered.");
             }
          }
@@ -200,7 +140,7 @@ namespace BusinessLayer {
          }
       }
 
-      public static void MainMenu(int menuChoice, ref int menuOption, 
+      public static void MainMenu(int menuChoice, ref int menuOption,
          ref bool exitProgram) {
          switch (menuChoice) {
             case 1:
@@ -216,39 +156,80 @@ namespace BusinessLayer {
          }
       }
 
-      public static void StandardMenu(int menuChoice, ref bool exitProgram) {
+      public static void StandardMenu(int menuChoice, ref int menuOptions) {
          switch (menuChoice) {
             case 1:
+               DisplayStandards();
                break;
             case 2:
+               businessL.AddStandard(CreateStandard());
                break;
             case 3:
                break;
             case 4:
+               businessL.RemoveStandard(DeleteStandard());
                break;
             case 5:
                break;
             case 6:
+               menuOptions = 1;
+               Console.WriteLine("Returning to the Main Menu.");
                break;
          }
+
       }
 
-      public static void StudentMenu(int menuChoice, ref bool exitProgram) {
+      public static void StudentMenu(int menuChoice, ref int menuOptions) {
          switch (menuChoice) {
             case 1:
+               DisplayStudents();
                break;
             case 2:
+               businessL.AddStudent(CreateStudent());
                break;
             case 3:
                break;
             case 4:
+               businessL.RemoveStudent(DeleteStudent());
                break;
             case 5:
+               menuOptions = 1;
+               Console.WriteLine("Returning to Main Menu.");
                break;
          }
       }
 
-      static DataAccessLayer.Student CreateStudent() {
+      public static void DisplayStandards() {
+         Console.WriteLine("\nCurrent Standards:");
+         foreach (var element in businessL.GetAllStandards()) {
+            Console.WriteLine(element.StandardId + ": " 
+               + element.StandardName);
+         }
+         Console.WriteLine();
+      }
+
+      public static void DisplayStudents() {
+         Console.WriteLine("\nCurrent Students:");
+         foreach (var element in businessL.GetAllStudents()) {
+            Console.WriteLine(element.StudentID + ": " + element.StudentName);
+         }
+         Console.WriteLine();
+      }
+
+      public static DataAccessLayer.Standard CreateStandard() {
+         Console.Write("Enter a name: ");
+         var name = Console.ReadLine();
+
+         Console.Write("Enter a Standard Description: ");
+         var standardDesc = Console.ReadLine();
+
+         return new DataAccessLayer.Standard() {
+            StandardName = name,
+            Description = standardDesc
+         };
+      }
+
+      public static DataAccessLayer.Student CreateStudent() {
          Console.Write("Enter a name: ");
          var name = Console.ReadLine();
 
@@ -261,7 +242,12 @@ namespace BusinessLayer {
          };
       }
 
-      static DataAccessLayer.Student DeleteStudent() {
+      public static DataAccessLayer.Standard DeleteStandard() {
+         Console.Write("Enter the StandardID of the standard to delete: ");
+         return businessL.GetStandardByID(Int32.Parse(Console.ReadLine()));
+      }
+
+      public static DataAccessLayer.Student DeleteStudent() {
          Console.Write("Enter the StudentID of the student to delete: ");
          return businessL.GetStudentByID(Int32.Parse(Console.ReadLine()));
       }

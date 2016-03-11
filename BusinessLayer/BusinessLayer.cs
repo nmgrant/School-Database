@@ -6,20 +6,20 @@ using System.Linq;
 
 namespace BusinessLayer {
     public interface IBusinessLayer {
-        IList<Standard> getAllStandards();
+        IList<Standard> GetAllStandards();
         IQueryable<Standard> SearchForStandard(
            Expression<Func<Standard, bool>> predicate);
         Standard GetStandardByID(int id);
-        void addStandard(Standard standard);
-        void updateStandard(Standard standard);
-        void removeStandard(Standard standard);
+        void AddStandard(Standard standard);
+        void UpdateStandard(Standard standard);
+        void RemoveStandard(Standard standard);
         Standard GetSingle(Func<Standard, bool> where,
            params Expression<Func<Standard, object>>[] navigationProperties);
-        IList<Student> getAllStudents();
+        IList<Student> GetAllStudents();
         IQueryable<Student> SearchForStudent(Expression<Func<Student,
            bool>> predicate);
         Student GetStudentByID(int id);
-        void addStudent(Student student);
+        void AddStudent(Student student);
         void UpdateStudent(Student student);
         void RemoveStudent(Student student);
         Student GetSingle(Func<Student, bool> where,
@@ -34,15 +34,15 @@ namespace BusinessLayer {
             _studentRepository = new StudentRepository();
         }
 
-        public void addStandard(Standard standard) {
+        public void AddStandard(Standard standard) {
             _standardRepository.Insert(standard);
         }
 
-        public void addStudent(Student student) {
+        public void AddStudent(Student student) {
             _studentRepository.Insert(student);
         }
 
-        public IList<Standard> getAllStandards() {
+        public IList<Standard> GetAllStandards() {
             return (IList<Standard>)_standardRepository.GetAll();
         }
 
@@ -56,7 +56,7 @@ namespace BusinessLayer {
            return _studentRepository.GetSingle(where, navigationProperties);
         }
 
-        public IList<Student> getAllStudents() {
+        public IList<Student> GetAllStudents() {
             return (IList<Student>)_studentRepository.GetAll();
         }
 
@@ -68,7 +68,7 @@ namespace BusinessLayer {
             return _studentRepository.GetById(id);
         }
 
-        public void removeStandard(Standard standard) {
+        public void RemoveStandard(Standard standard) {
             _standardRepository.Delete(standard);
         }
 
@@ -86,7 +86,7 @@ namespace BusinessLayer {
             return _studentRepository.SearchFor(predicate);
         }
 
-        public void updateStandard(Standard standard) {
+        public void UpdateStandard(Standard standard) {
             _standardRepository.Update(standard);
         }
 
