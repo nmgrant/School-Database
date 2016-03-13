@@ -19,7 +19,7 @@ namespace BusinessLayer {
 		IList<Student> GetAllStudents();
 		IQueryable<Student> SearchForStudent(Expression<Func<Student,
 			bool>> predicate);
-		Student GetStudentByName(string standardName);
+		Student GetStudentByName(string studentName);
 		Student GetStudentByID(int id);
 		void AddStudent(Student student);
 		void UpdateStudent(Student student);
