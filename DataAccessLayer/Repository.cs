@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace DataAccessLayer {
     public class Repository<T> : IRepository<T> where T : class {
@@ -26,7 +27,7 @@ namespace DataAccessLayer {
         }
 
         public void Update(T entity) {
-            context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+			context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }
 
@@ -45,12 +46,12 @@ namespace DataAccessLayer {
         public T GetSingle(Func<T, bool> where,
            params Expression<Func<T, object>>[] navigationProperties) {
             T item = null;
-            IQueryable<T> dbQuery = null;
+            IQueryable<T> dbQuery = context.Set<T>();
             foreach (Expression<Func<T, object>> navigationProperty
                in navigationProperties)
-                dbQuery = dbset.Include<T, object>(navigationProperty);
+                dbQuery = dbQuery.Include<T, object>(navigationProperty);
 
-            item = dbQuery.AsNoTracking().FirstOrDefault(where);
+            item = dbQuery.FirstOrDefault(where);
             return item;
         }
     }
