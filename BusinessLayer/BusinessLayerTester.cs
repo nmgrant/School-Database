@@ -191,6 +191,7 @@ namespace BusinessLayer {
                businessL.RemoveStandard(DeleteStandard());
                break;
             case 5:
+               DisplayStandardsWithID();
                break;
             case 6:
                menuOptions = 1;
@@ -253,6 +254,29 @@ namespace BusinessLayer {
          Console.WriteLine();
       }
 
+      public static void DisplayStandardsWithID() {
+         Console.WriteLine("Enter an ID to display all Students with the same"
+            + " StandardID:");
+         string userStandardID = Console.ReadLine();
+         int displayStandardID;
+         while (!Int32.TryParse(userStandardID, out displayStandardID) 
+            && !userStandardID.Equals("")) {
+            Console.WriteLine("Invalid input.");
+            Console.WriteLine("Enter an ID to display all Students with the "
+               + "same Standard ID:");
+            userStandardID = Console.ReadLine();
+         }
+
+         Console.WriteLine("\nStudents that have the ID " + userStandardID 
+            + ":");
+         var studentsWithID = businessL.SearchForStudent(
+            s => s.StandardId.ToString().Contains(userStandardID));
+         foreach (var elements in studentsWithID) {
+            Console.WriteLine(elements.StandardId + ": " 
+               + elements.StudentName);
+         }
+      }
+
       public static void DisplayStudents() {
          Console.WriteLine("\nCurrent Students:");
          foreach (var element in businessL.GetAllStudents()) {
@@ -262,10 +286,10 @@ namespace BusinessLayer {
       }
 
       public static DataAccessLayer.Standard CreateStandard() {
-         Console.Write("Enter a name: ");
+         Console.WriteLine("Enter a name: ");
          var name = Console.ReadLine();
 
-         Console.Write("Enter a Standard Description: ");
+         Console.WriteLine("Enter a Standard Description: ");
          var standardDesc = Console.ReadLine();
 
          return new DataAccessLayer.Standard() {
@@ -275,10 +299,10 @@ namespace BusinessLayer {
       }
 
       public static DataAccessLayer.Student CreateStudent() {
-         Console.Write("Enter a name: ");
+         Console.WriteLine("Enter a name: ");
          var name = Console.ReadLine();
 
-         Console.Write("Enter a StandardId: ");
+         Console.WriteLine("Enter a StandardId: ");
          var standardId = Int32.Parse(Console.ReadLine());
 
          return new DataAccessLayer.Student() {
@@ -288,7 +312,7 @@ namespace BusinessLayer {
       }
 
       public static DataAccessLayer.Standard DeleteStandard() {
-         Console.Write("Enter the StandardID of the standard to delete: ");
+         Console.WriteLine("Enter the StandardID of the standard to delete: ");
          var standard = businessL.GetStandardByID(Int32.Parse(Console.ReadLine()));
          while (standard == null) {
             Console.WriteLine("That student was not found, please try again.");
@@ -298,7 +322,7 @@ namespace BusinessLayer {
       }
 
       public static DataAccessLayer.Student DeleteStudent() {
-         Console.Write("Enter the StudentID of the student to delete: ");
+         Console.WriteLine("Enter the StudentID of the student to delete: ");
          var student = businessL.GetStudentByID(Int32.Parse(Console.ReadLine()));
          while (student == null) {
             Console.WriteLine("That student was not found, please try again.");
@@ -315,14 +339,14 @@ namespace BusinessLayer {
             standard = AskForStandardInfo(searchChoice);
          }
 
-         Console.Write("Enter the new name (press enter if not updating): ");
+         Console.WriteLine("Enter the new name (press enter if not updating): ");
          var name = Console.ReadLine();
 
          if (!name.Equals("")) {
             standard.StandardName = name;
          }
 
-         Console.Write("Enter the new Standard Description"
+         Console.WriteLine("Enter the new Standard Description"
           + " (press enter if not updating): ");
 
          string input = Console.ReadLine();
@@ -344,14 +368,14 @@ namespace BusinessLayer {
             student = AskForStudentInfo(searchChoice);
          }
 
-         Console.Write("Enter the new name (press enter if not updating): ");
+         Console.WriteLine("Enter the new name (press enter if not updating): ");
          var name = Console.ReadLine();
 
          if (!name.Equals("")) {
             student.StudentName = name;
          }
 
-         Console.Write("Enter the new StandardID"
+         Console.WriteLine("Enter the new StandardID"
           + " (press enter if not updating): ");
 
          string input = Console.ReadLine();
@@ -362,7 +386,7 @@ namespace BusinessLayer {
             int standardId;
             while (!Int32.TryParse(input, out standardId) && !input.Equals("")) {
                Console.WriteLine("Invalid input.");
-               Console.Write("Enter the new StandardID"
+               Console.WriteLine("Enter the new StandardID"
                   + " (press enter if not updating): ");
                input = Console.ReadLine();
             }
@@ -374,24 +398,25 @@ namespace BusinessLayer {
          return student;
       }
 
+      public static DataAccessLayer.Standard AskForStandardInfo(int searchChoice) {
+         if (searchChoice == 1) {
+            Console.WriteLine("Enter the StandardID of the standard to update: ");
+            return businessL.GetStandardByID(Int32.Parse(Console.ReadLine()));
+         } else {
+            Console.WriteLine("Enter the name of the Standard to update: ");
+            return businessL.GetStandardByName(Console.ReadLine());
+         }
+      }
+
       public static DataAccessLayer.Student AskForStudentInfo(int searchChoice) {
          if (searchChoice == 1) {
-            Console.Write("Enter the StudentID of the student to update: ");
+            Console.WriteLine("Enter the StudentID of the student to update: ");
             return businessL.GetStudentByID(Int32.Parse(Console.ReadLine()));
          } else {
-            Console.Write("Enter the name of the Student to update: ");
+            Console.WriteLine("Enter the name of the Student to update: ");
             return businessL.GetStudentByName(Console.ReadLine());
          }
       }
 
-      public static DataAccessLayer.Standard AskForStandardInfo(int searchChoice) {
-         if (searchChoice == 1) {
-            Console.Write("Enter the StandardID of the standard to update: ");
-            return businessL.GetStandardByID(Int32.Parse(Console.ReadLine()));
-         } else {
-            Console.Write("Enter the name of the Standard to update: ");
-            return businessL.GetStandardByName(Console.ReadLine());
-         }
-      }
    }
 }
