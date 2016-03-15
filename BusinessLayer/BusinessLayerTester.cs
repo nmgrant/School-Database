@@ -291,6 +291,7 @@ namespace BusinessLayer {
 
 			var student = AskForIdOrName(searchChoice);
 			while (student == null) {
+				Console.WriteLine("That student does not exist.");
 				student = AskForIdOrName(searchChoice);
 			}
 

@@ -1,0 +1,63 @@
+static DataAccessLayer.Student CreateStudent() {
+            Console.Write("Enter a name: ");
+            var name = Console.ReadLine();
+
+            Console.Write("Enter a StandardId: ");
+            var standardId = Int32.Parse(Console.ReadLine());
+
+            return new DataAccessLayer.Student() {
+                StudentName = name,
+                StandardId = standardId
+            };
+        }
+
+        static DataAccessLayer.Student DeleteStudent() {
+            Console.Write("Enter the StudentID of the student to delete: ");
+            return businessL.GetStudentByID(Int32.Parse(Console.ReadLine()));
+        }
+
+        static DataAccessLayer.Student UpdateStudent() {
+            Console.Write("Enter the StudentID of the student to update: ");
+            var studentId = Int32.Parse(Console.ReadLine());
+
+            var student = businessL.GetStudentByID(studentId);
+
+            Console.Write("Enter the new name (empty if not updating): ");
+            var name = Console.ReadLine();
+
+            Console.Write("Enter the new StandardID (empty if not updating): ");
+            var standardId = Console.ReadLine();
+
+            student.StudentName = !name.Equals("") ? name : student.StudentName;
+            student.StandardId = !standardId.Equals("") ? Int32.Parse(standardId) : student.StandardId;
+
+            return student;
+        }
+
+	static DataAccessLayer.Standard UpdateStandard(int searchChoice) {
+			DataAccessLayer.Standard standard;
+			if (searchChoice == 1) {
+
+				do {
+					Console.Write("Enter the StandardId of the Standard to update: ");
+					standard = businessL.GetStandardByID(Int32.Parse(Console.ReadLine()));
+				} while(standard == null);
+			}
+			else {
+				do {
+					Console.Write("Enter the name of the Standard to update: ");
+					standard = businessL.GetStandardByName(Console.ReadLine());
+				} while (standard == null);
+			}
+
+			Console.Write("Enter the new name (empty if not updating): ");
+			var name = Console.ReadLine();
+
+			Console.Write("Enter the new StandardID (empty if not updating): ");
+			var standardId = Console.ReadLine();
+
+			standard.StandardName = !name.Equals("") ? name : standard.StandardName;
+			standard.StandardId = !standardId.Equals("") ? Int32.Parse(standardId) : standard.StandardId;
+
+			return standard;
+		}
