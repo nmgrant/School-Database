@@ -139,7 +139,7 @@ namespace BusinessLayer {
                businessL.RemoveStandard(DeleteStandard());
                break;
             case 5:
-					DisplayStandardsWithID();
+               DisplayStandardsWithID();
                break;
             case 6:
                menuOptions = 1;
@@ -197,8 +197,33 @@ namespace BusinessLayer {
          Console.WriteLine("\nCurrent Standards:");
          foreach (var element in businessL.GetAllStandards()) {
             Console.WriteLine(element.StandardId + ": "
-					+ element.StandardName + " Description: "
-					+ element.Description);
+               + element.StandardName.PadRight(15) + " Description: "
+               + element.Description);
+         }
+         Console.WriteLine();
+      }
+
+      public static void DisplayStandardsWithID() {
+         Console.Write("Enter a StandardID to display all Students with "
+            + "the same " + "StandardID: ");
+
+         int displayStandardID;
+
+         while (!Int32.TryParse(Console.ReadLine(), out displayStandardID)) {
+            Console.WriteLine("Invalid input.");
+            Console.Write("Enter a StandardID to display all Students with "
+            + "the same " + "StandardID: ");
+         }
+
+         Console.WriteLine("\nStudents that have the StandardID "
+            + displayStandardID + ":");
+
+         var standardsWithID = businessL.SearchForStudent(s =>
+         s.StandardId == (displayStandardID));
+
+         foreach (var elements in standardsWithID) {
+            Console.WriteLine(elements.StudentID + ": "
+               + elements.StudentName);
          }
          Console.WriteLine();
       }
@@ -206,8 +231,9 @@ namespace BusinessLayer {
       public static void DisplayStudents() {
          Console.WriteLine("\nCurrent Students:");
          foreach (var element in businessL.GetAllStudents()) {
-            Console.WriteLine(element.StudentID + ": " + element.StudentName
-					+ "\t StandardID: " + element.StandardId);
+            Console.WriteLine(element.StudentID + ": "
+               + element.StudentName.PadRight(10) + "\t StandardID: "
+               + element.StandardId);
          }
          Console.WriteLine();
       }
@@ -228,7 +254,7 @@ namespace BusinessLayer {
       public static DataAccessLayer.Student CreateStudent() {
          Console.Write("Enter a Name: ");
          var name = Console.ReadLine();
-			
+
          var standardId = GetIntegerInput("Enter a StandardID: ");
 
          return new DataAccessLayer.Student() {
@@ -239,24 +265,24 @@ namespace BusinessLayer {
 
       public static DataAccessLayer.Standard DeleteStandard() {
          var standard = businessL.GetStandardByID(GetIntegerInput("Enter the "
-			 + "StandardID of the standard to delete: "));
-			while (standard == null) {
-				Console.WriteLine("That student was not found, please try again.");
-				standard = businessL.GetStandardByID(GetIntegerInput("Enter the "
-					+ "StandardID of the standard to delete: "));
-			}
-				return standard;
+          + "StandardID of the standard to delete: "));
+         while (standard == null) {
+            Console.WriteLine("That student was not found, please try again.");
+            standard = businessL.GetStandardByID(GetIntegerInput("Enter the "
+               + "StandardID of the standard to delete: "));
+         }
+         return standard;
       }
 
       public static DataAccessLayer.Student DeleteStudent() {
          var student = businessL.GetStudentByID(GetIntegerInput("Enter the " +
-				"StudentID of the student to delete: "));
+            "StudentID of the student to delete: "));
 
-			while (student == null) {
+         while (student == null) {
             Console.WriteLine("That student was not found, please try again.");
             student = businessL.GetStudentByID(GetIntegerInput("Enter the " +
-				"StudentID of the student to delete: "));
-			}
+            "StudentID of the student to delete: "));
+         }
          return student;
       }
 
@@ -304,40 +330,40 @@ namespace BusinessLayer {
             student.StudentName = name;
          }
 
-			int standardId = GetIntegerInput("Enter the new StandardID"
-					+ " (press enter if not updating): ");
+         int standardId = GetIntegerInput("Enter the new StandardID"
+               + " (press enter if not updating): ");
 
-			if (standardId == -1) {
+         if (standardId == -1) {
             return student;
          } else {
-				student.StandardId = standardId;
+            student.StandardId = standardId;
          }
 
          return student;
       }
 
-		public static int GetIntegerInput(string prompt) {
-			Console.Write(prompt);
+      public static int GetIntegerInput(string prompt) {
+         Console.Write(prompt);
 
-			int standardId;
+         int standardId;
 
-			string input = Console.ReadLine();
+         string input = Console.ReadLine();
 
-			while (!Int32.TryParse(input, out standardId) && !input.Equals("")) {
-				Console.WriteLine("Invalid input.");
-				Console.Write(prompt);
-				input = Console.ReadLine();
-			}
-			if (input.Equals("")) {
-				standardId = -1;
-			}
-			return standardId;
-		}
+         while (!Int32.TryParse(input, out standardId) && !input.Equals("")) {
+            Console.WriteLine("Invalid input.");
+            Console.Write(prompt);
+            input = Console.ReadLine();
+         }
+         if (input.Equals("")) {
+            standardId = -1;
+         }
+         return standardId;
+      }
 
       public static DataAccessLayer.Student AskForStudentInfo(int searchChoice) {
          if (searchChoice == 1) {
             return businessL.GetStudentByID(GetIntegerInput("Enter the "
-					+ "StudentID of the student to update: "));
+               + "StudentID of the student to update: "));
          } else {
             Console.Write("Enter the name of the Student to update: ");
             return businessL.GetStudentByName(Console.ReadLine());
@@ -353,28 +379,5 @@ namespace BusinessLayer {
          }
       }
 
-		public static void DisplayStandardsWithID() {
-			Console.Write("Enter a StandardID to display all Students with "
-				+ "the same "+ "StandardID: ");
-
-			int displayStandardID;
-
-			while (!Int32.TryParse(Console.ReadLine(), out displayStandardID)) {
-				Console.WriteLine("Invalid input.");
-				Console.Write("Enter a StandardID to display all Students with "
-				+ "the same " + "StandardID: ");
-			}
-
-			Console.WriteLine("\n Students that have the StandardID " 
-				+ displayStandardID + ":");
-
-			var standardsWithID = businessL.SearchForStudent(s =>
-			s.StandardId == (displayStandardID));
-
-			foreach (var elements in standardsWithID) {
-				Console.WriteLine(elements.StudentID + ": "
-					+ elements.StudentName);
-			}
-		}
-	}
+   }
 }
