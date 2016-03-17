@@ -187,7 +187,7 @@ namespace BusinessLayer {
                menuOptions = 2;
                break;
             case 2:
-               DisplayStandardsWithID();
+               DisplayStudentsWithID();
                menuOptions = 2;
                break;
             case 3:
@@ -226,13 +226,22 @@ namespace BusinessLayer {
          menuOptions = 2;
       }
 
+      // StandardSearchMenu() to search the Standard repository for a given 
+      // StandardID or Standard Name with a menu choice and reference to the
+      // menu options
       public static void StandardSearchMenu(int menuChoice,
          ref int menuOptions) {
+         // Switch case to search by StandardID or Standard Name
          switch (menuChoice) {
+            // Case 1, search the repository by StandardID
             case 1:
                Console.WriteLine("Enter the StandardID to display:");
+               // Initialize a variable to hold the ID to be searched
                int displayStandardID;
-               while (!Int32.TryParse(Console.ReadLine(), out displayStandardID)) {
+               // While loop to parse the input from the user until it is an
+               // int value
+               while (!Int32.TryParse(Console.ReadLine(), 
+                  out displayStandardID)) {
                   Console.WriteLine("Invalid input.");
                   Console.WriteLine("Enter the StandardID to display:");
                }
@@ -240,31 +249,41 @@ namespace BusinessLayer {
                Console.WriteLine("Standards with the StandardID "
                   + displayStandardID + ": ");
 
+               // Sets a var variable to hold all IDs that match in the 
+               // repository
                var standardsWithID = businessL.SearchForStandard(s =>
                   s.StandardId == (displayStandardID));
 
+               // Foreach loop to run through standardsWithID and print out
                foreach (var elements in standardsWithID) {
                   Console.WriteLine(elements.StandardId + ": "
                      + elements.StandardName);
                }
                Console.WriteLine();
                break;
+            // Case 2, search the repository by Standard Name
             case 2:
                Console.Write("Enter the Standard Name to display:");
+               // Initialize a variable to hold the name to be searched
                string standardSearch = "";
 
+               // While loop to run until a non empty string is entered
                while (standardSearch.Equals("")) {
                   standardSearch = Console.ReadLine();
                }
 
+               // Sets a var variable to hold all the names that match in the
+               // repository
                var standardName = businessL.SearchForStandard(s =>
                   s.StandardName == (standardSearch));
 
+               // Foreach loop to run through standardName and print out
                foreach (var elements in standardName) {
                   Console.WriteLine(elements.StandardName);
                }
                break;
          }
+         // Sets the menu options to 2
          menuOptions = 2;
       }
 
@@ -278,12 +297,16 @@ namespace BusinessLayer {
          Console.WriteLine();
       }
 
-      public static void DisplayStandardsWithID() {
+      // DisplayStudentsWithID() method to display all students with a given
+      // StandardID
+      public static void DisplayStudentsWithID() {
          Console.Write("Enter a StandardID to display all Students with "
             + "the same " + "StandardID: ");
-
+         // Initialize a variable to hold the StandardID to be searched for
          int displayStandardID;
 
+         // While loop to parse the input from the user until it is an
+         // int value
          while (!Int32.TryParse(Console.ReadLine(), out displayStandardID)) {
             Console.WriteLine("Invalid input.");
             Console.Write("Enter a StandardID to display all Students with "
@@ -293,10 +316,13 @@ namespace BusinessLayer {
          Console.WriteLine("\nStudents that have the StandardID "
             + displayStandardID + ":");
 
-         var standardsWithID = businessL.SearchForStudent(s =>
+         // Sets a var variable to hold all Students that match in the 
+         // repository
+         var studentsWithID = businessL.SearchForStudent(s =>
          s.StandardId == (displayStandardID));
 
-         foreach (var elements in standardsWithID) {
+         // Foreach loop to run through studentsWithID and print out
+         foreach (var elements in studentsWithID) {
             Console.WriteLine(elements.StudentID + ": "
                + elements.StudentName);
          }
