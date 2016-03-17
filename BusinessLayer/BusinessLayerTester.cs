@@ -2,35 +2,60 @@
 
 namespace BusinessLayer {
    class BusinessLayerTester {
-
+      // Intializes a static BusinessLayer object to be utilized throughout
+      // all the methods
       private static BusinessLayer businessL;
 
       static void Main(string[] args) {
+         // Initializes businessL to a new BusinessLayer object
          businessL = new BusinessLayer();
+         // Initializes the given menu to 1
          int menuOptions = 1;
+         // Initializes a menu choice variable
          int menuChoice;
+         // Initializes a bool variable for exiting the program
          bool exitProgram = false;
 
+         // Do, while loop to run until the user chooses to exit
          do {
+            // Calls the MenuOptions() method with the given menu option as a
+            // reference so the method has the ability to change it
             MenuOptions(ref menuOptions);
+            // Calls the UserMenuChoice() method with the given menu option and
+            // sets it to menu choice for the given options
             menuChoice = UserMenuChoice(menuOptions);
+
+            // Switch, case to switch through the cases of menus depending on
+            // the menu choice by the user
             switch (menuOptions) {
+               // Case 1, calls the MainMenu() method with the given menu 
+               // choice, a reference to the menu options, and reference to
+               // exit the program
                case 1:
                   MainMenu(menuChoice, ref menuOptions, ref exitProgram);
                   break;
+               // Case 2, calls the StandardMenu() method with the given menu
+               // choice and a reference to the menu options
                case 2:
                   StandardMenu(menuChoice, ref menuOptions);
                   break;
+               // Case 3, calls the StudentMenu() method with the given menu
+               // choice and a reference to the menu options
                case 3:
                   StudentMenu(menuChoice, ref menuOptions);
                   break;
+               // Case 4, calls the StudentSubMenu() method with the given menu
+               // choice and a reference to the menu options
                case 4:
                   StudentSubMenu(menuChoice, ref menuOptions);
                   break;
+               // Case 5, calls the StandardSubMenu() method with the given
+               // menu choice and a reference to the menu options
                case 5:
                   StandardSubMenu(menuChoice, ref menuOptions);
                   break;
             }
+         // While condition to break when exitProgram is true
          } while (!exitProgram);
       }
 
@@ -52,6 +77,11 @@ namespace BusinessLayer {
                Console.WriteLine("6. Return to Main Menu");
                break;
             case 3:
+               Console.WriteLine("Standard Update Menu");
+               Console.WriteLine("1. Search by ID");
+               Console.WriteLine("2. Search by name");
+               break;
+            case 4:
                Console.WriteLine("Student Menu");
                Console.WriteLine("1. Display all current Students");
                Console.WriteLine("2. Create new Student");
@@ -59,16 +89,12 @@ namespace BusinessLayer {
                Console.WriteLine("4. Delete Student");
                Console.WriteLine("5. Return to Main Menu");
                break;
-            case 4:
+            case 5:
                Console.WriteLine("Student Update Menu");
                Console.WriteLine("1. Search by ID");
                Console.WriteLine("2. Search by name");
                break;
-            case 5:
-               Console.WriteLine("Standard Update Menu");
-               Console.WriteLine("1. Search by ID");
-               Console.WriteLine("2. Search by name");
-               break;
+
             default:
                menu = 1;
                break;

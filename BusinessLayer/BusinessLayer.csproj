@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BusinessLayer.cs" />
     <Compile Include="BusinessLayerTester.cs" />
+    <Compile Include="IBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
