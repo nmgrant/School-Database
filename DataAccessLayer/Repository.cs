@@ -7,52 +7,66 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
 namespace DataAccessLayer {
-    public class Repository<T> : IRepository<T> where T : class {
-        protected DbContext context;
-        protected DbSet<T> dbset;
+	public class Repository<T> : IRepository<T> where T : class {
+		// the database context
+		protected DbContext context;
+		// the collection of all entities within the given context
+		protected DbSet<T> dbset;
 
-        public Repository(DbContext datacontext) {
-            context = datacontext;
-            dbset = context.Set<T>();
-        }
+		// Repository constructor taking a database for its DbContext
+		// and setting its DbSet equal to the DbContext's set of collections
+		public Repository(DbContext datacontext) {
+			context = datacontext;
+			dbset = context.Set<T>();
+		}
 
-        public void Insert(T entity) {
-            context.Entry(entity).State = System.Data.Entity.EntityState.Added;
-            context.SaveChanges();
-        }
+		// Insert an entity into the repository in the disconnected state
+		public void Insert(T entity) {
+			context.Entry(entity).State = System.Data.Entity.EntityState.Added;
+			context.SaveChanges();
+		}
 
-        public void Delete(T entity) {
-            context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
-            context.SaveChanges();
-        }
+		// Delete an entity from the repository in the disconnected state
+		public void Delete(T entity) {
+			context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
+			context.SaveChanges();
+		}
 
-        public void Update(T entity) {
+		// Update an entity in the repository in the disconnected state
+		public void Update(T entity) {
 			context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
-        }
+			context.SaveChanges();
+		}
 
-        public T GetById(int id) {
-            return dbset.Find(id);
-        }
+		// Get an entity from the dbset by Id
+		public T GetById(int id) {
+			return dbset.Find(id);
+		}
 
-        public IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate) {
-            return dbset.Where(predicate);
-        }
+		// Get a set of entities according to a predicate 
+		public IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate) {
+			return dbset.Where(predicate);
+		}
 
-        public IEnumerable<T> GetAll() {
-            return dbset.ToList();
-        }
+		// Return a list of all entities in the given repository
+		public IEnumerable<T> GetAll() {
+			return dbset.ToList();
+		}
 
-        public T GetSingle(Func<T, bool> where,
-           params Expression<Func<T, object>>[] navigationProperties) {
-            T item = null;
-            IQueryable<T> dbQuery = context.Set<T>();
-            foreach (Expression<Func<T, object>> navigationProperty
-               in navigationProperties)
-                dbQuery = dbQuery.Include<T, object>(navigationProperty);
+		// Uses a where expression to get a single entity
+		public T GetSingle(Func<T, bool> where,
+			params Expression<Func<T, object>>[] navigationProperties) {
+			T item = null;
+			IQueryable<T> dbQuery = context.Set<T>();
+			foreach (Expression<Func<T, object>> navigationProperty
+				in navigationProperties)
+				dbQuery = dbQuery.Include<T, object>(navigationProperty);
 
-            item = dbQuery.FirstOrDefault(where);
-            return item;
-        }
-    }
+			// The entity matching the where expression
+			item = dbQuery.FirstOrDefault(where);
+
+			// Return the entity
+			return item;
+		}
+	}
 }
