@@ -31,6 +31,6 @@ C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAc
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.xml
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.exe
 C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Evan James\Documents\Visual Studio 2015\Projects\School-Database\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
